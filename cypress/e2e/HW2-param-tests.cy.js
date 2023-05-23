@@ -7,7 +7,7 @@ describe('Toast tests', () => {
         cy.get('[src="assets/images/default-theme.jpg"]').click();
         cy.get('[title="Modal & Overlays"]').click();
         cy.get('[title="Toastr"]').click();
-        cy.wait(5000);
+    
           })
           const tests = [
                 {testData: {
@@ -73,7 +73,7 @@ describe('Toast tests', () => {
     tests.forEach(({testData,expectedResult}) => {
         it(`Test`, () => {
 
-           cy.get('[ng-reflect-selected="top-right"]').click();
+           cy.get('[ng-reflect-selected="top-right"]', {timeout:5000}).click();
            cy.contains(testData.position).click();
            cy.get('[name="title"]').clear().type(testData.title);
            cy.get('[name="content"]').clear().type(testData.content);
